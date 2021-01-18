@@ -28,3 +28,14 @@ $ git remote add 다른이름 다른 주소                       다른 곳에 
 
 $ git push origin master
 : origin에 
+
+
+
+원격 저장소 repo 컴퓨터로 다운로드
+
+새 폴더에 우클릭 vscode나 git 띄우고, 
+
+$ git clone 'github에 code 주소' 붙여넣기 (shift )
+
+
+
