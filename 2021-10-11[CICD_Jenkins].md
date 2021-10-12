@@ -23,8 +23,6 @@
 2. 서버와 gitlab을 연결시킨다.
 3. jenkins를 통해 gitlab의 특정 branch(develop) 변경 감지 시, 특정 명령(build 및 실행)을 수행하도록 한다.
 
-
-
 ### 1. 배포할 서버에 Jenkins와 필요한 기술 설치
 
 - apt 업데이트
@@ -51,8 +49,6 @@
 
 - Jenkins로 들어가 필요한 플러그인을 설치해준다.
 
-
-
 ### 2. 서버와 gitlab을 연결시킨다.
 
 - jenkins 플러그인 설치
@@ -67,23 +63,23 @@
 
   GitLab 파트
 
-   - connection name : 아무거나
+  - connection name : 아무거나
 
-   - Gitlab host URL : gitlab 주소 (gitlab.com)
+  - Gitlab host URL : gitlab 주소 (gitlab.com)
 
-   - Credentials : Add 후, jenkins를 눌러 생성
+  - Credentials : Add 후, jenkins를 눌러 생성
 
-      - Add credentials
+    - Add credentials
 
-      - Kind : GitLab API token
+    - Kind : GitLab API token
 
-      - API token : **발급받은 personal token**
+    - API token : **발급받은 personal token**
 
-        :star:personal token
+      ⭐personal token
 
-        gitlab
+      gitlab
 
-        - User Settings > Access Token 통해 발급
+      - User Settings > Access Token 통해 발급
 
 - 새로운 Item (PJT) 생성
 
@@ -93,9 +89,9 @@
 
   - Repository URL : gitlab clone 주소
 
-    :warning:Access denied가 뜨는 경우,
+    ⚠️Access denied가 뜨는 경우,
 
-    https://gitlabID:Personal access token@Repository주소 로 적는다
+    [https://gitlabID:Personal](https://gitlabid:Personal/) access token@Repository주소 로 적는다
 
   - Credentials : add - jenkins
 
@@ -107,7 +103,7 @@
 
     - Private Key : ssh key를 입력한다.
 
-      :star:ssh key
+      ⭐ssh key
 
       1. ubuntu 서버 내에서 아래 명령어로 키를 발급받는다.
 
@@ -121,7 +117,7 @@
 
   - Build 유발
 
-    - Build when a change is pushed to GitLab. GitLab webhook  체크
+    - Build when a change is pushed to GitLab. GitLab webhook 체크
     - 고급 > **key 생성 > 보관**
 
 - GitLab 프로젝트 설정 > Integrations > Go to Webhooks
@@ -176,8 +172,3 @@
     fuser -k 8080/tcp
     nohup java -jar /var/lib/jenkins/workspace/PJT/Backend/init/build/libs/init-0.0.1-SNAPSHOT.jar &
     ```
-
-    
-
-
-
